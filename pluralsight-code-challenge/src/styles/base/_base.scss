@@ -1,0 +1,44 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+	font-size:$m-size;
+	max-width:800px;
+	margin:0 auto;
+}
+
+button {
+	cursor:pointer;
+	border:0 none;
+	background:#12a10a;
+	padding:$m-size;
+	color:white;
+}
+
+button:hover {
+	background:#1ed10e;
+}
+
+button:disabled {
+  cursor:default;
+}
+
+td, th {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
+.input-group {
+	margin: 20px 0;
+}
+
+svg {
+	height:150px;
+}
+
+td:first-of-type, td:first-of-type > div {
+	height:200px;
+	width:250px;
+}

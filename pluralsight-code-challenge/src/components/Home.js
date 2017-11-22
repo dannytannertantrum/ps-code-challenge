@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Link} from 'react-router-dom';
 import {getQuestions} from '../actions/index';
 
-class ListQuestions extends Component {
+class Home extends Component {
 	constructor(props){
 		super(props);
 
@@ -18,6 +19,7 @@ class ListQuestions extends Component {
 		return (
 			<div>
 				<button onClick={this.handleClick}>Get questions</button>
+				<button><Link to="/create" >Create new question</Link></button>
 			</div>
 		);
 	}
@@ -27,4 +29,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({getQuestions}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(ListQuestions);
+export default connect(null, mapDispatchToProps)(Home);

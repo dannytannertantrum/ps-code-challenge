@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class Questions extends Component {
   
   renderQuestions(questions){
     return (
-      <p key={questions.question}>{questions.question}</p>
+      <p key={questions.id}>
+        {questions.question}&nbsp;
+        <Link to={`/edit/${questions.id}`}>Edit</Link>  
+      </p>
     );
   }
 

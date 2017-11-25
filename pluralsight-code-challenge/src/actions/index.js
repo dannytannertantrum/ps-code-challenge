@@ -16,7 +16,6 @@ export function getQuestions(){
 }
 
 export function createQuestion(values, callback){
-	console.log('values', values);
 	const request = axios.post(`${ROOT_URL}/questions`, values)
 		.then(() => callback());
 	return {
@@ -26,7 +25,6 @@ export function createQuestion(values, callback){
 }
 
 export function editQuestion(values, callback){
-	console.log('values', values);
 	const request = axios.put(`${ROOT_URL}/questions/${values.id}`, values)
 	.then(() => callback());
 	return {

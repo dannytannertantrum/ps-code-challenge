@@ -17,9 +17,8 @@ const PluralsightApp = () => (
         <Route path="/" component={Home} exact={true} />
         <Route path="/create" component={CreateQuestion} exact={true} />
         <Route path="/edit/:id" component={Edit} />
-        {/* <Route path="/question-list/" component={Questions} />*/}
+        <Route path="/list/" component={Questions} />
       </Switch>
-      <Questions />
       {/*<SearchBar />*/}
     </div>
   </BrowserRouter>

@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {getQuestions} from '../actions/index';
+import {bindActionCreators} from 'redux';
 
 class Questions extends Component {
+
+  componentWillMount(){
+    this.props.getQuestions();
+  }
   
   renderQuestions(questions){
     return (
@@ -14,7 +20,6 @@ class Questions extends Component {
   }
 
   render(){
-    console.log(this.props.questions[0]);
     return (
       <div>
         {this.props.questions[0] && this.props.questions[0].map(this.renderQuestions)}
@@ -27,4 +32,8 @@ function mapStateToProps({questions}) {
 	return {questions};
 }
 
-export default connect(mapStateToProps)(Questions);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({getQuestions}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Questions);

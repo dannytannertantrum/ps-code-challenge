@@ -25,11 +25,17 @@ class Questions extends Component {
 	}
   
   renderQuestions(questions){
+    let newDist = questions.distractors.split(',').join(', ');
+
     return (
-      <p key={questions.id}>
-        {questions.question}&nbsp;
-        <Link to={`/edit/${questions.id}`}>Edit</Link>  
-      </p>
+      <div key={questions.id} className="question-block">
+        <label>
+          {questions.question}&nbsp;
+          <Link to={`/edit/${questions.id}`}>Edit</Link>  
+        </label>
+        <p>Answer: {questions.answer}<br/>
+        Distractors: {newDist}</p>
+      </div>
     );
   }
 
@@ -41,7 +47,8 @@ class Questions extends Component {
 
       return (
         <div>
-          <input 
+          <input
+            type="text"
             placeholder="Filter questions"
             value={this.state.search}
             onChange={this.onInputChange}

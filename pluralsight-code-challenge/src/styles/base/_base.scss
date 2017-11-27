@@ -32,7 +32,7 @@ button:disabled {
 }
 
 h1 a {
-	color:#333;
+	color:#777;
 	text-decoration:none;
 }
 
@@ -44,4 +44,16 @@ input[type="text"]{
 	width:100%;
 	margin-bottom:10px;
 	padding:8px;
+}
+
+.question-block, input[type="text"] {
+	margin-bottom:20px;
+}
+
+.question-block p {
+	margin:2px 0 10px 0;
+}
+
+label {
+	font-weight:700;
 }

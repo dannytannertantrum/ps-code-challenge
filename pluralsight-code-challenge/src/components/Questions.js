@@ -6,9 +6,23 @@ import {bindActionCreators} from 'redux';
 
 class Questions extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      search:''
+    };
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
   componentWillMount(){
     this.props.getQuestions();
   }
+
+  onInputChange(event){
+		event.persist();
+    this.setState(() => ({search: event.target.value}));
+	}
   
   renderQuestions(questions){
     return (
@@ -20,11 +34,26 @@ class Questions extends Component {
   }
 
   render(){
-    return (
-      <div>
-        {this.props.questions[0] && this.props.questions[0].map(this.renderQuestions)}
-      </div>
-    );
+    if(this.props.questions[0]){
+      let filteredQuestions = this.props.questions[0].filter((question) => {
+        return question.question.indexOf(this.state.search) !== -1;
+      });
+
+      return (
+        <div>
+          <input 
+            placeholder="Filter questions"
+            value={this.state.search}
+            onChange={this.onInputChange}
+          />
+        {filteredQuestions && filteredQuestions.map(this.renderQuestions)}
+        </div>
+      );
+    } else {
+      return (
+        <div>Loading...</div>
+      );
+    }
   }
 }
 

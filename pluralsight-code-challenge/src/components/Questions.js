@@ -36,7 +36,7 @@ class Questions extends Component {
   render(){
     if(this.props.questions[0]){
       let filteredQuestions = this.props.questions[0].filter((question) => {
-        return question.question.indexOf(this.state.search) !== -1;
+        return question.question.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       });
 
       return (
